@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Encaminhamento" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="encaminhamento">
+        <id name="idEnc" type="java.lang.Integer">
+            <column name="idEnc"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="br.com.acolhimento.mapping.Endereco" embed-xml="true" fetch="select" insert="true" name="endereco" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idEndereco" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="br.com.acolhimento.mapping.Funcionario" embed-xml="true" fetch="select" insert="true" name="funcionario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="20" name="cpfFunc" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="br.com.acolhimento.mapping.Usuario" embed-xml="true" fetch="select" insert="true" name="usuario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="nProntuarioUsu" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="tipoEnc" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="tipoEnc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="localEnc" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="localEnc"/>
+        </property>
+        <property generated="never" lazy="false" name="statusEnc" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="statusEnc"/>
+        </property>
+        <property generated="never" lazy="false" name="dataEnc" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataEnc"/>
+        </property>
+    </class>
+</hibernate-mapping>

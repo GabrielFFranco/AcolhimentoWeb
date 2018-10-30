@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Usuario" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="usuario">
+        <id name="nprontuarioUsu" type="java.lang.Integer">
+            <column name="nProntuarioUsu"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="br.com.acolhimento.mapping.Endereco" embed-xml="true" fetch="select" insert="true" name="endereco" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idEndereco"/>
+        </many-to-one>
+        <many-to-one class="br.com.acolhimento.mapping.Funcionario" embed-xml="true" fetch="select" insert="true" name="funcionarioByAtendidoPeloFunc" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="30" name="atendidoPeloFunc" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="br.com.acolhimento.mapping.Funcionario" embed-xml="true" fetch="select" insert="true" name="funcionarioByCpfFunc" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="20" name="cpfFunc"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="tipoUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="tipoUsu" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dataCadastroUsu" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataCadastroUsu" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nomeUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="nomeUsu" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="statusUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="statusUsu" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sexoUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="sexoUsu" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dataNascUsu" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataNascUsu"/>
+        </property>
+        <property generated="never" lazy="false" name="tipoDoc" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="tipoDoc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="documentoUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="documentoUsu"/>
+        </property>
+        <property generated="never" lazy="false" name="cidadeOrigemUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="cidadeOrigemUsu"/>
+        </property>
+        <property generated="never" lazy="false" name="parecerTecnicoUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="parecerTecnicoUsu"/>
+        </property>
+        <property generated="never" lazy="false" name="drogasUsadasUsu" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="drogasUsadasUsu"/>
+        </property>
+        <property generated="never" lazy="false" name="situacao" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="situacao"/>
+        </property>
+        <property generated="never" lazy="false" name="ultimaCidade" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="ultimaCidade"/>
+        </property>
+        <property generated="never" lazy="false" name="cidadeDestino" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="cidadeDestino"/>
+        </property>
+        <property generated="never" lazy="false" name="dataDeEntrada" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataDeEntrada"/>
+        </property>
+        <property generated="never" lazy="false" name="dataDeSaida" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataDeSaida"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="chamadas" optimistic-lock="true" sort="unsorted" table="chamada">
+            <key on-delete="noaction">
+                <column name="nProntuarioUsu" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Chamada" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="encaminhamentos" optimistic-lock="true" sort="unsorted" table="encaminhamento">
+            <key on-delete="noaction">
+                <column name="nProntuarioUsu" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Encaminhamento" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

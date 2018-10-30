@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Endereco" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="endereco">
+        <id name="idEndereco" type="java.lang.Integer">
+            <column name="idEndereco"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="endereco" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="endereco"/>
+        </property>
+        <property generated="never" lazy="false" name="numeroEnd" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="numeroEnd"/>
+        </property>
+        <property generated="never" lazy="false" name="bairro" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="bairro"/>
+        </property>
+        <property generated="never" lazy="false" name="cidade" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="cidade"/>
+        </property>
+        <property generated="never" lazy="false" name="cep" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="cep"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="empresas" optimistic-lock="true" sort="unsorted" table="empresa">
+            <key on-delete="noaction">
+                <column name="idEndereco"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Empresa" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="funcionarios" optimistic-lock="true" sort="unsorted" table="funcionario">
+            <key on-delete="noaction">
+                <column name="idEndereco"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Funcionario" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="encaminhamentos" optimistic-lock="true" sort="unsorted" table="encaminhamento">
+            <key on-delete="noaction">
+                <column name="idEndereco" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Encaminhamento" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="usuarios" optimistic-lock="true" sort="unsorted" table="usuario">
+            <key on-delete="noaction">
+                <column name="idEndereco"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Usuario" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

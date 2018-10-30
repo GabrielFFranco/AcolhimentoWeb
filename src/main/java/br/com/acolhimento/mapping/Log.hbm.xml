@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Log" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="log">
+        <id name="idLog" type="java.lang.Integer">
+            <column name="idLog"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="br.com.acolhimento.mapping.Funcionario" embed-xml="true" fetch="select" insert="true" name="funcionario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="20" name="cpfFunc" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="dataLogin" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataLogin" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dataLogoff" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataLogoff" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="tipoEntradaOuAlteracao" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="tipoEntradaOuAlteracao"/>
+        </property>
+        <property generated="never" lazy="false" name="tipoRelatorioGerado" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="tipoRelatorioGerado"/>
+        </property>
+    </class>
+</hibernate-mapping>

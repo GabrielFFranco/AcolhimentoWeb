@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Funcionario" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="funcionario">
+        <id name="cpfFunc" type="string">
+            <column length="20" name="cpfFunc"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="br.com.acolhimento.mapping.Endereco" embed-xml="true" fetch="select" insert="true" name="endereco" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idEndereco"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nomeFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="nomeFunc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="rgFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="rgFunc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dataNascFunc" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="dataNascFunc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="telefoneFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="telefoneFunc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="emailFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="emailFunc"/>
+        </property>
+        <property generated="never" lazy="false" name="tipoFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="12" name="tipoFunc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="statusFunc" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="statusFunc" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="logs" optimistic-lock="true" sort="unsorted" table="log">
+            <key on-delete="noaction">
+                <column length="20" name="cpfFunc" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Log" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="usuariosForAtendidoPeloFunc" optimistic-lock="true" sort="unsorted" table="usuario">
+            <key on-delete="noaction">
+                <column length="30" name="atendidoPeloFunc" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Usuario" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="encaminhamentos" optimistic-lock="true" sort="unsorted" table="encaminhamento">
+            <key on-delete="noaction">
+                <column length="20" name="cpfFunc" not-null="true"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Encaminhamento" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="usuariosForCpfFunc" optimistic-lock="true" sort="unsorted" table="usuario">
+            <key on-delete="noaction">
+                <column length="20" name="cpfFunc"/>
+            </key>
+            <one-to-many class="br.com.acolhimento.mapping.Usuario" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

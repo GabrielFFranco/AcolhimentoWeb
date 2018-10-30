@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 30/10/2018 15:32:28 by Hibernate Tools 5.2.11.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acolhimento" dynamic-insert="false" dynamic-update="false" mutable="true" name="br.com.acolhimento.mapping.Empresa" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="empresa">
+        <id name="cnpjEmp" type="string">
+            <column length="20" name="cnpjEmp"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="br.com.acolhimento.mapping.Endereco" embed-xml="true" fetch="select" insert="true" name="endereco" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idEndereco"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nomeEmp" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="nomeEmp" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="numeroVagasEmp" optimistic-lock="true" type="short" unique="false">
+            <column name="numeroVagasEmp" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="razaoSocialEmp" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="razaoSocialEmp"/>
+        </property>
+    </class>
+</hibernate-mapping>

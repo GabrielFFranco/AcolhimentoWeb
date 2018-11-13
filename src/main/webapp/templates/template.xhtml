@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SisAC - Sistema de Acolhimento</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<div id="teste">
+			<p:layoutUnit position="north"
+				header="SisAC - Sistema de Acolhimento" resizable="false"
+				closable="false" collapsible="false"></p:layoutUnit>
+		</div>
+		<p:layoutUnit position="south" header="Copyright &#169;"
+			resizable="false" closable="false" collapsible="false"></p:layoutUnit>
+		<p:layoutUnit position="west" resizable="false" closable="false"
+			collapsible="false" size="250">
+
+			<h:form>
+				<p:panelMenu>
+					<p:submenu label="Residente">
+						<p:menuitem value="Cadastrar" url="CadastroUser.xhtml"></p:menuitem>
+						<p:menuitem value="Listar"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Funcionário">
+						<p:menuitem value="Cadastrar"></p:menuitem>
+						<p:menuitem value="Listar"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Encaminhamentos">
+						<p:menuitem value="Cadastrar"></p:menuitem>
+						<p:menuitem value="Listar"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Empresa">
+						<p:menuitem value="Alterar"></p:menuitem>
+						<p:menuitem value="Sobre"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Sistema">
+						<p:menuitem value="Principal"></p:menuitem>
+						<p:menuitem value="Sobre"></p:menuitem>
+						<p:menuitem value="Sair"></p:menuitem>
+					</p:submenu>
+				</p:panelMenu>
+			</h:form>
+		</p:layoutUnit>
+		<p:layoutUnit position="center" resizable="false" closable="false"
+			collapsible="false">
+			<ui:insert name="conteudo">
+			</ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

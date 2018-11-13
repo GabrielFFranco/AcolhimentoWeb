@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+	<ui:define name="conteudo">
+		<h:outputLabel>
+			<h4>Usuários Registrados No Sistema</h4>
+		</h:outputLabel>
+		<div id="pesquisa">
+			<h:panelGrid columns="5">
+				<div id="espacamento">
+					<p:outputLabel>N° Prontuário       </p:outputLabel>
+					<p:inputText size="50" />
+					<p:outputLabel>Nome       </p:outputLabel>
+					<p:inputText size="50" />
+				</div>
+				<div id="espacamento">
+					<p:outputLabel style="padding:5px">Status       </p:outputLabel>
+					<p:selectOneMenu style="margin-top:10px">
+						<f:selectItem itemValue="1" itemLabel="Ativo" />
+						<f:selectItem itemValue="2" itemLabel="Inativo" />
+					</p:selectOneMenu>
+					<p:outputLabel style="padding:5px">Tipo       </p:outputLabel>
+					<p:selectOneMenu style="margin-top:10px">
+						<f:selectItem itemValue="1" itemLabel="Morador" />
+						<f:selectItem itemValue="2" itemLabel="Não-Perfil" />
+						<f:selectItem itemValue="3" itemLabel="Migrante" />
+					</p:selectOneMenu>
+				</div>
+			</h:panelGrid>
+
+		</div>
+		<div id="botoesTabela">
+			<h:panelGrid columns="5">
+				<p:commandButton value="Editar" style="padding :10px; width:120px;" />
+				<p:commandButton value="Visualizar"
+					style="padding:10px;width:120px;" />
+				<p:commandButton value="Visualizar"
+					style="padding:10px;width:120px;" />
+			</h:panelGrid>
+		</div>
+		<div id="tabela">
+			<p:dataTable var="cliente" value="#{clienteMB.clientes}">
+				<p:column headerText="Nome">
+					<h:outputText value="#{cliente.nome}" />
+				</p:column>
+
+				<p:column headerText="Tipo">
+					<h:outputText value="#{cliente.idade}" />
+				</p:column>
+
+				<p:column headerText="Status">
+					<h:outputText value="#{cliente.descricao}" />
+				</p:column>
+
+				<p:column headerText="Data Cadastro">
+					<h:outputText value="#{cliente.dataCadastro}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+
+			</p:dataTable>
+		</div>
+
+	</ui:define>
+</ui:composition>

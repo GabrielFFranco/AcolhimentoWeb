@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+	<h:outputStylesheet library="css" name="style.css" />
+	<ui:define name="conteudo">
+		<h:body id="itens">
+			<h:panelGrid columns="8">
+				<p:outputLabel>Tipo       </p:outputLabel>
+				<p:selectOneMenu size="15">
+					<f:selectItem itemValue="1" itemLabel="Morador" />
+					<f:selectItem itemValue="2" itemLabel="Não-Perfil" />
+					<f:selectItem itemValue="3" itemLabel="Migrante" />
+				</p:selectOneMenu>
+				<p:outputLabel>Status       </p:outputLabel>
+				<p:selectOneMenu size="15">
+					<f:selectItem itemValue="1" itemLabel="Ativo" />
+					<f:selectItem itemValue="2" itemLabel="Inativo" />
+				</p:selectOneMenu>
+				<p:outputLabel>Data de Nascimento       </p:outputLabel>
+				<p:inputText size="20" />
+			</h:panelGrid>
+
+			<div id="espacamento">
+				<h:panelGrid columns="7">
+					<p:outputLabel>Nome       </p:outputLabel>
+					<p:inputText size="50" />
+					<p:outputLabel>Documento		</p:outputLabel>
+					<p:selectOneMenu size="15">
+						<f:selectItem itemValue="1" itemLabel="" />
+						<f:selectItem itemValue="2" itemLabel="RG" />
+						<f:selectItem itemValue="3" itemLabel="CPF" />
+						<f:selectItem itemValue="4" itemLabel="Certidão de Nascimento" />
+						<f:selectItem itemValue="5" itemLabel="Outros" />
+					</p:selectOneMenu>
+					<p:inputText size="30" />
+					<p:outputLabel>Sexo       </p:outputLabel>
+					<p:selectOneMenu size="15">
+						<f:selectItem itemValue="1" itemLabel="Masculino" />
+						<f:selectItem itemValue="2" itemLabel="Feminino" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+			</div>
+			<div id="espacamento">
+				<h:panelGroup>
+					<p:outputLabel>Cidade de Origem </p:outputLabel>
+					<p:inputText size="30" />
+				</h:panelGroup>
+			</div>
+			<div id="espacamento">
+				<h:panelGrid columns="6">
+					<p:outputLabel>Endereço Familiar</p:outputLabel>
+					<p:inputText size="40" />
+					<p:outputLabel>Bairro</p:outputLabel>
+					<p:inputText size="30" />
+					<p:outputLabel>N°</p:outputLabel>
+					<p:inputText size="15" />
+				</h:panelGrid>
+			</div>
+			<div id="espacamento">
+				<h:panelGrid columns="6">
+					<p:outputLabel>Cidade</p:outputLabel>
+					<p:inputText size="30" />
+					<p:outputLabel>UF</p:outputLabel>
+					<p:selectOneMenu size="15">
+						<f:selectItem itemValue="1" itemLabel="SP" />
+						<f:selectItem itemValue="2" itemLabel="PR" />
+					</p:selectOneMenu>
+					<p:outputLabel>CEP</p:outputLabel>
+					<p:inputText size="20" />
+				</h:panelGrid>
+			</div>
+			<div id="espacamento">
+				<h:panelGrid columns="2">
+					<p:outputLabel>Funcionário Responsável</p:outputLabel>
+					<p:inputText size="40" />
+				</h:panelGrid>
+			</div>
+			<div id="espacamento">
+				<h:panelGrid columns="1">
+					<p:outputLabel>Uso de Substâncias:</p:outputLabel>
+					<p:inputTextarea cols="104" rows="3" />
+				</h:panelGrid>
+			</div>
+			<div id="espacamento">
+				<h:panelGrid columns="1">
+					<p:outputLabel>Parecer Técnico:</p:outputLabel>
+					<p:inputTextarea cols="104" rows="5" />
+				</h:panelGrid>
+			</div>
+			<div id="botoesDeCanto">
+				<h:panelGrid columns="2">
+					<p:commandButton value="Salvar" size="30" />
+					<p:commandButton value="Limpar" size="30" />
+				</h:panelGrid>
+			</div>
+		</h:body>
+	</ui:define>
+</ui:composition>

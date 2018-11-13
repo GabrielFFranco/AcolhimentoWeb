@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 95% !important;
+}
+
+#centro {
+	position: absolute;
+	left: 40%;
+	top: 40%
+}
+
+#botoesLogin {
+	position: absolute;
+	left: 45%;
+	top: 60%
+}
+
+#cabecario {
+	font-size: 98px;
+	position: absolute;
+	left: 40%;
+	top: 20%;
+	color: Red;
+	font-family: American Typewriter, serif;
+}
+
+#itens {
+	padding: 15px;
+	float: 10px;
+}
+
+#botoesDeCanto {
+	position: absolute;
+	left: 80%;
+	top: 90%
+}
+
+#espacamento{
+	padding: 5px;
+}

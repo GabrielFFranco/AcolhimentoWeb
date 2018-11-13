@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+	<ui:define name="conteudo">
+		<h:outputLabel>
+			<h4>Dados da Empresa de Acolhimento</h4>
+		</h:outputLabel>
+		<h:panelGrid columns="5" style="margin-right:5px;">
+			<div id="espacamento2">
+				<p:outputLabel>Empresa</p:outputLabel>
+				<p:inputText size="50" style="margin-right:10px;" />
+				<p:outputLabel>CNPJ</p:outputLabel>
+				<p:inputText size="30" />
+			</div>
+			<div id="espacamento2">
+				<p:outputLabel>Razão Social</p:outputLabel>
+				<p:inputText size="50" />
+				<p:outputLabel>N° de vagas</p:outputLabel>
+				<p:inputText size="5" />
+			</div>
+			<div id="espacamento2">
+				<p:outputLabel>Endereço</p:outputLabel>
+				<p:inputText size="50" />
+				<p:outputLabel>Bairro</p:outputLabel>
+				<p:inputText size="30" />
+			</div>
+			<div id="espacamento2">
+				<p:outputLabel>Num.</p:outputLabel>
+				<p:inputText size="15" />
+				<p:outputLabel>Cidade</p:outputLabel>
+				<p:inputText size="30" />
+			</div>
+			<div id="espacamento2">
+				<p:outputLabel>CEP</p:outputLabel>
+				<p:inputText size="15" />
+			</div>
+		</h:panelGrid>
+
+		<div id="botoesDeCanto">
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar" size="30" />
+				<p:commandButton value="Limpar" size="30" />
+			</h:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>
